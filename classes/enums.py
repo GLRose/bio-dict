@@ -1,5 +1,6 @@
 from enum import Enum
 
+# SEED ENUMS
 class Texture(Enum):
     BUMPY = "bumpy"
     SMOOTH = "smooth"
@@ -19,7 +20,6 @@ class Thickness(Enum):
     MEDIUM = "medium"
     LARGE = "large"
 
-
 class Radicle(Enum):
     TAPROOT = "taproot"
     FOOD_STORAGE = "food storage"
@@ -28,3 +28,9 @@ class StoredNutriends(Enum):
     CARBOHYDRATES = "carbohydrates"
     LIPIDS = "lipids"
     PROTEINS = "proteins"
+
+#GERMINATION ENUMS
+
+class Gibberellin(Enum):
+    ACID19 = "acid19"
+    ACID20 = "acid20"

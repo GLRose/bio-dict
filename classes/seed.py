@@ -20,20 +20,23 @@ print(seed_coat.texture.value, seed_coat.color.value, seed_coat.thickness.value)
 
 # A seed embryo consists of the radicle(embryonic root), plumule(shoot), and cotyledon(s)
 class Embryo:
-  def __init__(self, radicle, plumule, cotyledon)
+  def __init__(self, radicle, plumule, cotyledon):
     self.radicle = radicle
     self.plumule = plumule
     self.cotyledon = cotyledon
 
 # Stored nutrients in a seed consist of carbohydrates, lipids(oils), and proteins
 class StoredNutrients:
-  def __init__(self, carbohydrates, lipids, proteins)
+  def __init__(self, carbohydrates, lipids, proteins):
     self.carohydrates = carbohydrates 
     self.lipids = lipids
     self.proteins = proteins
-# I need to handle monocotyledons and dicotyledons potentially with inheritance or extensiton
 
-# This is how we set multipart parameters to a single param 
-seed_coat = SeedCoat(Texture.BUMPY, Color.BROWN, Thickness.SMALL)
-seed = Seed(seed_coat, 'hi', 'bye')
-print(seed.seed_coat.color)
+class Dormancy: 
+  def __init__(self, dormant):
+    self.dormant =  dormant
+
+  def __bool__(self):
+    return self.dormant != 0
+
+# I need to handle monocotyledons and dicotyledons potentially with inheritance or extensiton
