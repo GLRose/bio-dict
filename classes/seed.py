@@ -1,4 +1,4 @@
-from enums import Texture, Color, Thickness
+from .enums import *
 # A seed consists of a seed coat, an embryo, and stored nutrients
 
 class Seed: 
@@ -28,7 +28,7 @@ class Embryo:
 # Stored nutrients in a seed consist of carbohydrates, lipids(oils), and proteins
 class StoredNutrients:
   def __init__(self, carbohydrates, lipids, proteins):
-    self.carohydrates = carbohydrates 
+    self.carbohydrates = carbohydrates 
     self.lipids = lipids
     self.proteins = proteins
 

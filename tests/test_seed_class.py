@@ -1,12 +1,9 @@
-import sys
-import os
+# import sys
+# import os
 import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-# Get the parent directory (the folder containing "classes")
-sys.path.insert(1, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'classes')))
-from seed import *
-
+from classes.seed import *
 def test_not_dormant():
   x = Dormancy(0)
   assert not x
