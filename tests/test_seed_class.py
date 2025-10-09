@@ -1,8 +1,10 @@
-# import sys
-# import os
+from enum import Enum
+from classes.seed import *
 import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+#Dormancy
 from classes.seed import *
 def test_not_dormant():
   x = Dormancy(0)
@@ -11,6 +13,13 @@ def test_not_dormant():
 def test_dormant():
   x = Dormancy(1)
   assert x
+
+#Moncotyledon and Dicotyledon
+def test_cotyledon():
+  x = Monocotyledon("fleshy")
+  assert x.type == "fleshy"
+  assert x.number == 1
+
 
 #TODO break class testing out into separate tests
 # This is how we set multipart parameters to a single param 

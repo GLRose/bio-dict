@@ -29,6 +29,10 @@ class StoredNutriends(Enum):
     LIPIDS = "lipids"
     PROTEINS = "proteins"
 
+class CotyledonType(Enum):
+    MONOCOTYLEDON = "monocotyledon"
+    DICOTYLEDON = "dicotyledon"
+    
 #GERMINATION ENUMS
 
 class Gibberellin(Enum):

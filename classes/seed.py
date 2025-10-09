@@ -1,4 +1,4 @@
-from .enums import *
+from classes.enums import *
 # A seed consists of a seed coat, an embryo, and stored nutrients
 
 class Seed: 
@@ -38,5 +38,18 @@ class Dormancy:
 
   def __bool__(self):
     return self.dormant != 0
+  
+class Cotyledon: 
+  def __init__(self, type, number):
+    self.type = type
+    self.number = number
 
-# I need to handle monocotyledons and dicotyledons potentially with inheritance or extensiton
+class Monocotyledon(Cotyledon):
+  def __init__(self, type = CotyledonType.MONOCOTYLEDON, number = 1):
+    super().__init__(type, number)
+
+class Dicotyledon(Cotyledon):
+  def __init__(self, type = CotyledonType.DICOTYLEDON, number = 2):
+    super().__init__(type, number)
+
+
