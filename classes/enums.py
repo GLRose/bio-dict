@@ -24,7 +24,7 @@ class Radicle(Enum):
     TAPROOT = "taproot"
     FOOD_STORAGE = "food storage"
 
-class StoredNutriends(Enum):
+class StoredNutrients(Enum):
     CARBOHYDRATES = "carbohydrates"
     LIPIDS = "lipids"
     PROTEINS = "proteins"

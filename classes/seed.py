@@ -1,4 +1,4 @@
-from classes.enums import *
+from .enums import *
 # A seed consists of a seed coat, an embryo, and stored nutrients
 
 class Seed: 
@@ -14,9 +14,6 @@ class SeedCoat:
     self.color = color
     self.thickness = thickness
 # TODO: Always refer to variations to find the components of said component
-seed_coat = SeedCoat(Texture.BUMPY, Color.BROWN, Thickness.SMALL)
-
-print(seed_coat.texture.value, seed_coat.color.value, seed_coat.thickness.value)
 
 # A seed embryo consists of the radicle(embryonic root), plumule(shoot), and cotyledon(s)
 class Embryo:
