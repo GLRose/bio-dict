@@ -1,5 +1,5 @@
 from flask import Flask
-from .seed import *
+from ..classes.seed import *
 
 app = Flask(__name__);
 
@@ -22,11 +22,14 @@ def embryo_atts():
        "plumule": embryo.plumule,
     } 
 
-# @app.route('/storedNutrients')
-# def stored_nutrient_atts():
-#     stored_nutrients = StoredNutrients(StoredNutrients.car) 
-#     return {
-#     } 
+@app.route('/nutrients')
+def stored_nutrient_atts():
+    stored_nutrients = StoredNutrients(carbohydrates='', lipids='', proteins='') 
+    return {
+        "carbs": stored_nutrients.carbohydrates,
+        "lipids": stored_nutrients.lipids,
+        "proteins": stored_nutrients.proteins,
+    }
 
 
 
