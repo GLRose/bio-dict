@@ -24,7 +24,7 @@ class Radicle(Enum):
     TAPROOT = "taproot"
     FOOD_STORAGE = "food storage"
 
-class StoredNutrients(Enum):
+class NutrientType(Enum):
     CARBOHYDRATES = "carbohydrates"
     LIPIDS = "lipids"
     PROTEINS = "proteins"
@@ -34,7 +34,6 @@ class CotyledonType(Enum):
     DICOTYLEDON = "dicotyledon"
     
 #GERMINATION ENUMS
-
 class Gibberellin(Enum):
     ACID19 = "acid19"
     ACID20 = "acid20"
