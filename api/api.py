@@ -1,12 +1,12 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 from ..classes.seed import *
 from ..classes.germination import *
 from ..classes.enums import *
 
-app = Flask(__name__);
+app = Flask(__name__)
 
 # TODO: Dynamically set the class properties
-@app.route('/seed_comp')
+@app.route('/seed_comp', methods=['GET'])
 
 def seed_atts():
     seedcoat = SeedCoat(Texture.BUMPY, Color.BROWN, Thickness.SMALL)
@@ -51,9 +51,8 @@ def seed_atts():
         },
     }
 
-@app.route('/germination')
+@app.route('/germination_data', methods=['GET'])
 def germination_atts():
-    # germination = germination(Temperature= '', Oxygen= '', Moisture= '')
     temperature = Temperature(min_temp=0, max_temp=0)
     oxygen = Oxygen(0)
     moisture = Moisture(level=0)
@@ -70,5 +69,39 @@ def germination_atts():
         },
     }
 
+@app.route('/germination', methods=['POST'])
+def germination_test():
+    data = request.get_json() or {}
+    
+    temp_data = data.get('temperature', {})
+    oxygen_data = data.get('oxygen', {})
+    moisture_data = data.get('moisture', {})
+    
+    # Create objects with dynamic values from payload
+    temperature = Temperature(
+        min_temp=temp_data.get('min_temp', 0),
+        max_temp=temp_data.get('max_temp', 0)
+    )
+    oxygen = Oxygen(oxygen_data.get('present', 0))
+    moisture = Moisture(level=moisture_data.get('level', 0))
+    
+    return jsonify({
+        "temperature": {
+            "min_temp": temperature.min_temp,
+            "max_temp": temperature.max_temp,
+            "is_suitable": temperature.is_suitable(temp_data['current_temp'])
+        },
+        "oxygen": {
+            "present": oxygen.present,
+            "is_suitable": oxygen.is_suitable()
+        },
+        "moisture": {
+            "level": moisture.level,
+        },
+        "received_data": data
+    })
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0')
 
 
