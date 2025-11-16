@@ -13,8 +13,7 @@ class SeedCoat:
     self.texture = texture
     self.color = color
     self.thickness = thickness
-# TODO: Always refer to variations to find the components of said component
-
+    
 # A seed embryo consists of the radicle(embryonic root), plumule(shoot), and cotyledon(s)
 class Embryo:
   def __init__(self, radicle, plumule, cotyledon):
@@ -31,7 +30,7 @@ class StoredNutrients:
 
 class Dormancy: 
   def __init__(self, dormant):
-    self.dormant =  dormant
+    self.dormant = dormant
 
   def __bool__(self):
     return self.dormant != 0
