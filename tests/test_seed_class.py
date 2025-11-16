@@ -5,7 +5,6 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 #Dormancy
-from classes.seed import *
 def test_not_dormant():
   x = Dormancy(0)
   assert not x
